@@ -7,7 +7,7 @@ import javax.swing.*;
 public class App {
 
     public static void main(String[] args) {
-     
+   
      
    //Declaring
      SwingUtilities.invokeLater(() -> { 
@@ -17,32 +17,42 @@ public class App {
      String password;
      
      //If Username is or not succesful
+         int num =0;
          int length = Username.length();
-         if (length<6 && length>4)
+    if (length<6 && length>4)
+                 {
+                  num = 1;
+                 }
+    if ( Username.matches("(?=.*[_].*)"))
+    {
+        num =2;
+    }
+         else
+        
          {
-         JOptionPane.showMessageDialog(null,"Username correct"); 
-         }
-         else    
-         {
-          JOptionPane.showMessageDialog(null, "Username must be 5 character long" + "contain Underscore (_)");               
-           }
+          num =3;               
+           } 
          
-         //Password
-          
+         boolean Num = (num + num)=3;
+         Num = (Num?"Username successfully captured":"Username must be 5 character long" + "contain Underscore (_)") 
+         JOptionPane.showMessageDialog(null,Num); 
+         
+         
+         //Password 
          password = JOptionPane.showInputDialog("Enter Password");
          int score = 0;
-         int lengths = password.length ();{    
+         int lengths = password.length ();    
          if (lengths>=8 && lengths<=10)               
          {
-             score=1;
+             score +=1;
          }      
          if (password.matches("(?=.*[a-z].*)"))
          {
-             score=2;
+             score +=2;
          }
          if (password.matches("(?= .*[A-Z].*)"))
          {
-             score=3;
+             score +=3;
          }
          if (password.matches("(?= .*[0-9].*)"))
          {
@@ -52,19 +62,19 @@ public class App {
          {
              score++;
          }
-     }
-     boolean checkusercomplexity=(score) >=5;
+     
+     boolean checkusercomplexity=(score) >= score++;
                          
       String message = "Name: "+ Name + "\n" + "Surname: " +Surname + "\n" +
-              "checkcusercomplexity" + (checkusercomplexity? "Password Succesfully captured": """
+              "checkcusercomplexity:" + "\n" + (checkusercomplexity? "Password Succesfully captured": """
                                              Must conatin at least 8 characters 
                                              Contain a capital letter
-                                             Contain Number
-                                             Contain Special Character
+                                             Contain a Number
+                                             Contain a Special Character
                                              """);
       
       
       JOptionPane.showMessageDialog(null,message);
-     });         
-    }
-}
+         
+                 
+}); 
